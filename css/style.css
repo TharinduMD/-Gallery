@@ -1,11 +1,12 @@
 * {
-
   margin: 0;
 }
 html {
   font-family: Aquatico, "Ubuntu Condensed", sans-serif;
-  font-size: 18px;
+  font-size: 20px;
 }
+
+/*Header*/
 
 header {
   color: #e6c9c3;
@@ -20,7 +21,7 @@ header {
   justify-content: center;
   text-align: center;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   background-attachment: fixed;
 }
 header h1 {
@@ -30,7 +31,7 @@ header h1 {
   margin-bottom: 0;
   text-shadow: 2px 2px 4px #fdccce;
   line-height: 100%;
-  animation: popup 2s ease;
+  animation: popup 1.2s ease, trany 0.5s 1.2s ease;
 }
 header p {
   margin-top: 0;
@@ -38,6 +39,7 @@ header p {
   letter-spacing: 0.4em;
   word-spacing: 0.3em;
   text-shadow: 1px 1px 2px #f96332;
+  animation: show_me 1.5s ease-in;
 }
 .button {
   background-color: transparent;
@@ -47,31 +49,81 @@ header p {
   text-decoration: none;
   border-radius: 20px;
   margin: 15px;
+  animation: show_me 1.5s ease-in;
 }
 .button:hover {
   color: black;
   background: #f96332;
   border: 2px solid black;
 }
-footer {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  color: black;
-  background-color: #000000;
-}
-#details1 {
-  color: #ffffff;
-  margin: 20px 30px;
-  font-size: 14px;
-  letter-spacing: 1.5px;
-  margin-top: 30px;
+
+/*navigation bar*/
+
+.nav1{
+	display: flex;
+	background-color: white;
+	box-shadow:1px 1px 4px rgb(150,200,254);
+	position: sticky;
+	top: 0;
+	justify-content: space-between;
+	height: 50px;
 }
 
-#details1 h2 {
-  font-size: 1.5em;
-  padding-bottom: 10px;
+.nav1 img{
+	width:25%;
+	height: 180%;
+	position: relative;
+	top:5px;
+	left:-20px;
+	z-index: 1;
+}
+
+ul#navbar {
+  margin-top: 5px;
+  margin-right: 40px;
+  background-color: transparent;
+  font-size: 0.95rem;
+  display: flex;
+}
+
+ul#navbar li {
+  display: inline-block;
+  padding: 2px;
+  width: 100px;
+  height: 40px;
+  border: 2px solid transparent;
+  text-align: center;
+  overflow: hidden;
+}
+
+ul#navbar li > a {
+  margin-right: 0;
+  font-family: "Concert One", cursive;
+  color: rgb(0, 0, 110);
+  text-decoration: none;
+  position: relative;
+  top: -40px;
+  transition: all 0.7s linear;
+}
+
+ul#navbar li > div {
+  position: relative;
+  left: -10px;
+  top: -10px;
+  width: 60%;
+  height: 45px;
+  z-index: -1;
+  transition: all 1s ease;
+  z-index: -1;
+}
+
+ul#navbar li:hover > a {
+  color: white;
+}
+
+ul#navbar li:hover > div {
+  background: linear-gradient(to left, rgb(67, 10, 158), rgb(219, 207, 230));
+  animation: linesBtn 0.8s linear forwards;
 }
 
 /*#loc+p {
@@ -80,14 +132,19 @@ footer {
    top: -9999px !important;
    left: -9999px !important;
 }*/
-#feedback {
+
+/*Feedback*/
+
+#feedback,
+section {
   margin: 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#feedback p {
+#feedback p,
+#glry {
   font-family: Aquatico, "Concert One", cursive;
   font-weight: bold;
   font-size: 2.2em;
@@ -98,7 +155,8 @@ footer {
   letter-spacing: 3.5px;
   text-shadow: 1px 1px 1px #f96332;
 }
-#details2 {
+
+#details {
   margin: 10px 30px;
   font-weight: 300;
   font-size: 13px;
@@ -108,13 +166,13 @@ footer {
   word-spacing: 1.5px;
   align-items: center;
 }
-#details2 input {
+#details input {
   padding: 5px;
   width: 40vw;
   margin-bottom: 10px;
   font-size: 16px;
 }
-#details2 textarea {
+#details textarea {
   font-size: 16px;
   padding: 5px;
   margin-bottom: 20px;
@@ -122,7 +180,7 @@ footer {
   height: 10vh;
 }
 
-#details2 input[type="submit"] {
+#details input[type="submit"] {
   font-family: Aquatico, "Ubuntu Condensed", sans-serif;
   font-size: 20px;
   background: #000000;
@@ -135,11 +193,52 @@ footer {
   letter-spacing: 2px;
 }
 
-#details2 input[type="submit"]:hover {
+#details input[type="submit"]:hover {
   background: #000000;
   color: #ffffff;
   box-shadow: 1px 1px 0.5px #005151, -1px -1px 0.5px #000000;
   text-shadow: 0.5px 0.5px 1px #005151, -0.5px -0.5px 1px #005151;
+}
+
+/*About me*/
+
+#mydetails {
+	background: url(../picture/PIC-1.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+	background-attachment: fixed;
+	margin :0;
+}
+#mydetails img {
+	width:20vw;
+	float: left;
+	margin:50px;
+	margin-bottom: 30px;
+}
+
+#mydetails div{
+  color: #fff;
+  font-size: 17px;
+  letter-spacing: 1.5px;
+  text-align: center;
+  text-shadow: 1px 1px 4px black;
+}
+
+#mydetails h2 {
+  font-size: 1.5em;
+  padding-bottom: 10px;
+}
+
+/*footer*/
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  color: black;
+  background-color: #000000;
+  padding: 20px 0;
+  justify-content: center;
 }
 
 ul.social {
@@ -180,8 +279,6 @@ ul.social {
 }
 .twi .fab {
   color: #fff;
-  position: relative;
-  left: 2px;
   font-size: 18px;
 }
 .twi {
@@ -208,20 +305,73 @@ ul.social {
   /*margin: 20px;*/
 }
 
+
+/*this for header h1 loading time 1st effect*/
 @keyframes popup {
   0% {
     opacity: 0;
-    transform: scale(0.9);
+    margin-top: 180px;
+    margin-bottom: -40px;
   }
   50% {
-    opacity: 100;
-    transform: scale(1.1);
+    opacity: 1;
+    letter-spacing: 20px;
+    margin-top: 180px;
+    margin-bottom: -40px;
   }
   100% {
-    transform: scale(1);
+    letter-spacing: 1.5px;
+    margin-top: 180px;
+    margin-bottom: -40px;
   }
 }
 
+/*this for header h1 loading time 2nd effect*/
+@keyframes trany {
+  from {
+    margin-top: 180px;
+    margin-bottom: -40px;
+  }
+  to {
+    margin-top: 150px;
+  }
+}
+
+/*this for header p tag loading time effect*/
+@keyframes show_me {
+  0% {
+    opacity: 0;
+    transform: translateY(-150%);
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*this for navigation bar hover effect*/
+@keyframes linesBtn {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+/*responsive*/
 @media screen and (max-width: 500px) {
   header {
     height: 75vh;
